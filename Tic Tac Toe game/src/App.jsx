@@ -1,19 +1,14 @@
 import { useState } from "react";
 import "./App.css";
+import Player from "../Components/Player";
 
 function App() {
   return (
     <main>
       <div id="game-container">
         <ol id="players">
-          <li>
-            <span className="player-name">player 1</span>
-            <span className="player-symbol">X</span>
-          </li>
-          <li>
-            <span className="player-name">player 2</span>
-            <span className="player-symbol">O</span>
-          </li>
+          <Player name="player 1" symbol="X" />
+          <Player name="palyer 2" symbol="O" />
         </ol>
       </div>
     </main>
