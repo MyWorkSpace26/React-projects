@@ -1,8 +1,7 @@
 import React from "react";
 import Button from "./Button";
-import { useState } from "react";
 
-const ProjectsSidebar = () => {
+const ProjectsSidebar = ({ onStartAddProject, projects }) => {
   return (
     <>
       <aside className="w-1/3 px-9 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
@@ -10,12 +9,16 @@ const ProjectsSidebar = () => {
           Your Project
         </h2>
         <div>
-          <Button>+ Add Project</Button>
+          <Button onClick={onStartAddProject}>+ Add Project</Button>
         </div>
-        <ul>
-          <li>Project 1</li>
-          <li>Project 2</li>
-          <li>Project 3</li>
+        <ul className="mt-8">
+          {projects.map((project) => (
+            <li key={project.id}>
+              <button className="w-full text-left px-2 py-1 rounded-sm my-1 text-stone-400 hover:text-stone-200 hover:bg-stone-800">
+                {project.title}
+              </button>
+            </li>
+          ))}
         </ul>
       </aside>
     </>
