@@ -3,7 +3,7 @@ import { useRef } from "react";
 import Input from "./Input.jsx";
 import Modal from "./Modal.jsx";
 
-export default function NewProject({ onAdd, onCancel, project }) {
+export default function NewProject({ onAdd, onCancel }) {
   const modal = useRef();
 
   const title = useRef();
@@ -30,6 +30,7 @@ export default function NewProject({ onAdd, onCancel, project }) {
       dueDate: enteredDueDate,
     });
   }
+
   return (
     <>
       <Modal ref={modal} buttonCaption="Okay">
