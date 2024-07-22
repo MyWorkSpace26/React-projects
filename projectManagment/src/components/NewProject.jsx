@@ -3,7 +3,10 @@ import { useRef } from "react";
 import Input from "./Input.jsx";
 import Modal from "./Modal.jsx";
 
-export default function NewProject({ onAdd, onCancel }) {
+import { useProjectsState } from "./context/ProjectsContext.jsx";
+
+export default function NewProject({ onCancel }) {
+  const { handleAddProject } = useProjectsState();
   const modal = useRef();
 
   const title = useRef();
@@ -24,7 +27,7 @@ export default function NewProject({ onAdd, onCancel }) {
       return;
     }
 
-    onAdd({
+    handleAddProject({
       title: enteredTitle,
       description: enteredDescription,
       dueDate: enteredDueDate,
