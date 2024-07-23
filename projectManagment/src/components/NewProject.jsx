@@ -5,8 +5,8 @@ import Modal from "./Modal.jsx";
 
 import { useProjectsState } from "./context/ProjectsContext.jsx";
 
-export default function NewProject({ onCancel }) {
-  const { handleAddProject } = useProjectsState();
+export default function NewProject() {
+  const { handleAddProject, handleCancelAddProject } = useProjectsState();
   const modal = useRef();
 
   const title = useRef();
@@ -50,7 +50,7 @@ export default function NewProject({ onCancel }) {
           <li>
             <button
               className="text-stone-800 hover:text-stone-950"
-              onClick={onCancel}
+              onClick={handleCancelAddProject}
             >
               Cancel
             </button>
