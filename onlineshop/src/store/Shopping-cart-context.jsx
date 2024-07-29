@@ -33,6 +33,30 @@ function shoppingCartReducer(state, action) {
     }
 
     return {
+      ...state,
+      items: updatedItems,
+    };
+  }
+  if (action.type === "UPDATE_ITEM") {
+    const updatedItems = [...state.items];
+    const updatedItemIndex = updatedItems.findIndex(
+      (item) => item.id === action.payload.productId
+    );
+
+    const updatedItem = {
+      ...updatedItems[updatedItemIndex],
+    };
+
+    updatedItem.quantity += action.payload.amount;
+
+    if (updatedItem.quantity <= 0) {
+      updatedItems.splice(updatedItemIndex, 1);
+    } else {
+      updatedItems[updatedItemIndex] = updatedItem;
+    }
+
+    return {
+      ...state,
       items: updatedItems,
     };
   }
@@ -58,27 +82,12 @@ export const ShoppingCartProvider = ({ children }) => {
   }
 
   function handleUpdateCartItemQuantity(productId, amount) {
-    setShoppingCart((prevShoppingCart) => {
-      const updatedItems = [...prevShoppingCart.items];
-      const updatedItemIndex = updatedItems.findIndex(
-        (item) => item.id === productId
-      );
-
-      const updatedItem = {
-        ...updatedItems[updatedItemIndex],
-      };
-
-      updatedItem.quantity += amount;
-
-      if (updatedItem.quantity <= 0) {
-        updatedItems.splice(updatedItemIndex, 1);
-      } else {
-        updatedItems[updatedItemIndex] = updatedItem;
-      }
-
-      return {
-        items: updatedItems,
-      };
+    shoppingCartDispatch({
+      type: "UPDATE_ITEM",
+      payload: {
+        productId,
+        amount,
+      },
     });
   }
   return (
