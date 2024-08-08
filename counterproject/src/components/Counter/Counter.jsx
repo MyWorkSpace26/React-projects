@@ -1,4 +1,4 @@
-import { memo, useReducer } from "react";
+import { memo, useReducer, useCallback, useMemo } from "react";
 
 import IconButton from "../UI/IconButton.jsx";
 import MinusIcon from "../UI/Icons/MinusIcon.jsx";
@@ -8,14 +8,14 @@ import { log } from "../../log.js";
 
 const INCREMENT = "INCREMENT";
 const DECREMENT = "DECREMENT";
+/* const UpdateSetCounter = "NEWCOUNTER"; */
 
 const setCounter = (state, action) => {
   if (action.type === INCREMENT) {
     return { isCounter: state.isCounter + 1 };
-  } else if (action.type === DECREMENT) {
-    return { isCounter: state.isCounter - 1 };
-  }
-  return state;
+  } else if (action.type === UpdateSetCounter) {
+    return { isCounter: action.newValue };
+  } else if (action.type === I) return state;
 };
 
 function isPrime(number) {
@@ -37,22 +37,29 @@ function isPrime(number) {
 
 const Counter = memo(function Counter({ initialCount }) {
   log("<Counter /> rendered", 1);
-  const initialCountIsPrime = isPrime(initialCount);
+  const initialCountIsPrime = useMemo(
+    () => isPrime(initialCount),
+    [initialCount]
+  );
+
+  /*   useEffect(() => {
+    dispatch({ type: UpdateSetCounter, newValue: initialCount });
+  }, [initialCount]); */
 
   const [state, dispatch] = useReducer(setCounter, { isCounter: initialCount });
 
-  function handleDecrement() {
+  const handleDecrement = useCallback(function handleDecrement() {
     dispatch({ type: DECREMENT });
-  }
+  }, []);
 
-  function handleIncrement() {
+  const handleIncrement = useCallback(function handleIncrement() {
     dispatch({ type: INCREMENT });
-  }
+  }, []);
 
   return (
     <section className="counter">
       <p className="counter-info">
-        The initial counter value was <strong>{}</strong>. It{" "}
+        The initial counter value was <strong>{initialCount}</strong>. It{" "}
         <strong>is {initialCountIsPrime ? "a" : "not a"}</strong> prime number.
       </p>
       <p>
