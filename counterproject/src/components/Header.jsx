@@ -1,7 +1,10 @@
 import React from "react";
+import { log } from "../log";
 import logoImg from "../assets/logo.png";
 
 const Header = () => {
+  log("<Header /> rendered", 1);
+
   return (
     <header id="main-header">
       <img src={logoImg} alt="Magnifying glass analyzing a document" />
