@@ -23,12 +23,18 @@ function App() {
       setIsFetching(true);
 
       try {
-        const response = await fetch("http://localhost:3000/placessss");
+        const response = await fetch("http://localhost:3000/places");
         const resData = await response.json();
         if (!response.ok) {
           throw new Error("Faild to fetch data");
         }
-        setAvailablePlaces(resData.places);
+        navigator.geolocation.getCurrentPosition((postion) => {
+          const lat = postion.coords.latitude;
+          const lng = postion.coords.longitude;
+          const sortPlaces = sortPlacesByDistance(resData.places, lat, lng);
+          setAvailablePlaces(sortPlaces);
+          setIsFetching(false);
+        });
       } catch (error) {
         setError({
           message:
@@ -42,14 +48,6 @@ function App() {
     fetchPlaces();
   }, []);
 
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition((postion) => {
-      const lat = postion.coords.latitude;
-      const lng = postion.coords.longitude;
-      const sortPlaces = sortPlacesByDistance(availablePlaces, lat, lng);
-      setAvailablePlaces(sortPlaces);
-    });
-  }, []);
   function handleStartRemovePlace(id) {
     setModalIsOpen(true);
     selectedPlace.current = id;
