@@ -6,6 +6,7 @@ import DeleteConfirmation from "./components/DeleteConfirmation.jsx";
 import logoImg from "./assets/logo.png";
 import { sortPlacesByDistance } from "./loc.js";
 import Error from "./components/Error.jsx";
+import { fetchAvailablePlaces, updateUserPlaces } from "./http.js";
 
 function App() {
   const selectedPlace = useRef();
@@ -23,15 +24,11 @@ function App() {
       setIsFetching(true);
 
       try {
-        const response = await fetch("http://localhost:3000/places");
-        const resData = await response.json();
-        if (!response.ok) {
-          throw new Error("Faild to fetch data");
-        }
+        const places = await fetchAvailablePlaces();
         navigator.geolocation.getCurrentPosition((postion) => {
           const lat = postion.coords.latitude;
           const lng = postion.coords.longitude;
-          const sortPlaces = sortPlacesByDistance(resData.places, lat, lng);
+          const sortPlaces = sortPlacesByDistance(places, lat, lng);
           setAvailablePlaces(sortPlaces);
           setIsFetching(false);
         });
@@ -57,14 +54,20 @@ function App() {
     setModalIsOpen(false);
   }
 
-  function handleSelectPlace(id) {
+  async function handleSelectPlace(id) {
+    let place;
     setPickedPlaces((prevPickedPlaces) => {
       if (prevPickedPlaces.some((place) => place.id === id)) {
         return prevPickedPlaces;
       }
-      const place = availablePlaces.find((place) => place.id === id);
+      place = availablePlaces.find((place) => place.id === id);
       return [place, ...prevPickedPlaces];
     });
+    try {
+      await updateUserPlaces([place, ...availablePlaces]);
+    } catch (error) {
+      //error
+    }
   }
 
   const handleRemovePlace = useCallback(function handleRemovePlace() {
