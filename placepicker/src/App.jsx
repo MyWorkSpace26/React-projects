@@ -16,6 +16,7 @@ function App() {
   const [pickedPlaces, setPickedPlaces] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [error, setError] = useState();
+  const [errorUpdatingPlaces, setErrorUpdatingPlaces] = useState();
 
   //fetch available Places from backend API
 
@@ -66,7 +67,10 @@ function App() {
     try {
       await updateUserPlaces([place, ...availablePlaces]);
     } catch (error) {
-      //error
+      setAvailablePlaces(availablePlaces);
+      setErrorUpdatingPlaces({
+        message: error.message || "Failed to update places.",
+      });
     }
   }
 
@@ -76,8 +80,21 @@ function App() {
     );
     setModalIsOpen(false);
   }, []);
+
+  function handleError() {
+    setErrorUpdatingPlaces(null);
+  }
   return (
     <>
+      <Modal open={errorUpdatingPlaces} onClose={handleError}>
+        {errorUpdatingPlaces && (
+          <Error
+            title="An error occurred!"
+            message={errorUpdatingPlaces.message}
+            onConfirm={handleError}
+          />
+        )}
+      </Modal>
       <Modal open={modalIsOpen} onClose={handleStopRemovePlace}>
         <DeleteConfirmation
           onCancel={handleStopRemovePlace}
