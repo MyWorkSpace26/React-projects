@@ -4,11 +4,13 @@ const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
+const addCart = "ADD_ITEM";
+const deleteCart = "REMOVE_ITEM";
+
 const reducer = (state, action) => {
+  const updatedItems = [...state.items];
   switch (action.type) {
-    case "ADD_ITEM":
-      //return { ...state, items: [...state.items, action.item] };
-      const updatedItems = [...state.items];
+    case addCart:
       const exitstingCartItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
       );
@@ -27,11 +29,24 @@ const reducer = (state, action) => {
         ...state,
         items: updatedItems,
       };
-    case "REMOVE_ITEM":
-      return {
-        ...state,
-        items: state.items.filter((item) => item.id !== action.id),
-      };
+    case deleteCart:
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.id
+      );
+      const existingCartItem = state.items[existingCartItemIndex];
+      if (existingCartItem.quantity === 1) {
+        updatedItems.splice(existingCartItemIndex, 1);
+      } else {
+        const updatedItem = {
+          ...existingCartItem,
+          quantity: existingCartItem.quantity - 1,
+        };
+        updatedItems[existingCartItemIndex] = updatedItem;
+      }
+
+      return { ...state, items: updatedItems };
+    default:
+      return state;
   }
 };
 
@@ -42,14 +57,14 @@ export const CartProvider = ({ children }) => {
 
   const handlerAddingMeal = (item) => {
     dispatch({
-      type: "ADD_ITEM",
+      type: addCart,
       item,
     });
   };
 
   const handlerDeletingMeal = (id) => {
     dispatch({
-      type: "REMOVE_ITEM",
+      type: deleteCart,
       id,
     });
   };
