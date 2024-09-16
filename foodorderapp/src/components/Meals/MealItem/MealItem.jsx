@@ -3,7 +3,7 @@ import { useCart } from "../../../context/CartContext";
 import { currFormatting } from "../../../util/Formatting";
 import { Button } from "../../UI/Button";
 const MealItem = ({ meal }) => {
-  const { handlerGetMeal } = useCart();
+  const { handlerAddingMeal } = useCart();
 
   return (
     <li className="meal-item">
@@ -17,7 +17,7 @@ const MealItem = ({ meal }) => {
         <p className="meal-item-actions">
           <Button
             onClick={() => {
-              handlerGetMeal(meal);
+              handlerAddingMeal(meal);
             }}
           >
             Add to Cart
