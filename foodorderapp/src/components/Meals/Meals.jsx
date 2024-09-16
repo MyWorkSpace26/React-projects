@@ -13,17 +13,9 @@ const Meals = () => {
   }, []);
   return (
     <ul id="meals">
-      {meals.map((meal) => {
-        return (
-          <li key={meal.id}>
-            <div>
-              <h3>{meal.name}</h3>
-              <div>{meal.description}</div>
-              <div>{meal.price}</div>
-            </div>
-          </li>
-        );
-      })}
+      {meals.map((meal) => (
+        <MealItem key={meal.id} meal={meal} />
+      ))}
     </ul>
   );
 };

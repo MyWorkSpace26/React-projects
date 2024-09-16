@@ -1,6 +1,10 @@
 import React from "react";
 import logoImg from "../../assets/logo.jpg";
+import { Button } from "../UI/Button.jsx";
+import { useCart } from "../../context/CartContext";
 const Header = () => {
+  const { cartInfo } = useCart();
+  const countOfMeals = cartInfo.items.length;
   return (
     <header id="main-header">
       <div id="title">
@@ -8,7 +12,7 @@ const Header = () => {
         <h1>ReactFood</h1>
       </div>
       <nav>
-        <button>Cart (0)</button>
+        <Button textOnly>Cart {countOfMeals}</Button>
       </nav>
     </header>
   );
