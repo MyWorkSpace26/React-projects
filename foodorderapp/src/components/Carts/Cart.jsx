@@ -8,12 +8,16 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
   const { cartInfo } = useCart();
-  const { progress } = useUserProgress();
+  const { progress, hideCart } = useUserProgress();
 
   const cartTotal = cartInfo.items.reduce(
     (totalPrice, item) => totalPrice + item.quantity * item.price,
     0
   );
+
+  const handleCloseCart = () => {
+    hideCart();
+  };
 
   return (
     <Modal className="cart" open={progress === "cart"}>
@@ -32,8 +36,10 @@ const Cart = () => {
       </ul>
       <p className="cart-totla">{currFormatting.format(cartTotal)}</p>
       <p className="modal-actions">
-        <Button textOnly>Close</Button>
-        <Button>Go to Checkout</Button>
+        <Button textOnly onClick={handleCloseCart}>
+          Close
+        </Button>
+        <Button onClick={handleCloseCart}>Go to Checkout</Button>
       </p>
     </Modal>
   );
