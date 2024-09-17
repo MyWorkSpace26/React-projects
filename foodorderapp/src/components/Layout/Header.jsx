@@ -2,9 +2,18 @@ import React from "react";
 import logoImg from "../../assets/logo.jpg";
 import { Button } from "../UI/Button.jsx";
 import { useCart } from "../../context/CartContext";
+import { useUserProgress } from "../../context/UserProgressContext.jsx";
 const Header = () => {
   const { cartInfo } = useCart();
-  const countOfMeals = cartInfo.items.length;
+  const { showCart } = useUserProgress();
+  const countOfMeals = cartInfo.items.reduce((totllNumberOfItems, item) => {
+    return totllNumberOfItems + item.quantity;
+  }, 0);
+
+  function handleStartShowCrat() {
+    showCart();
+  }
+
   return (
     <header id="main-header">
       <div id="title">
@@ -12,7 +21,9 @@ const Header = () => {
         <h1>ReactFood</h1>
       </div>
       <nav>
-        <Button textOnly>Cart {countOfMeals}</Button>
+        <Button textOnly onClick={handleStartShowCrat}>
+          Cart {countOfMeals}
+        </Button>
       </nav>
     </header>
   );

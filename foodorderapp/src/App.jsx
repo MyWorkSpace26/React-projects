@@ -1,3 +1,4 @@
+import Cart from "./components/Carts/Cart";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
 import { useCart } from "./context/CartContext";
@@ -9,6 +10,7 @@ function App() {
     <>
       <Header />
       <Meals />
+      <Cart />
     </>
   );
 }
