@@ -7,7 +7,7 @@ import { useUserProgress } from "../../context/UserProgressContext";
 import CartItem from "./CartItem";
 
 const Cart = () => {
-  const { cartInfo } = useCart();
+  const { cartInfo, handlerAddingMeal, handlerDeletingMeal } = useCart();
   const { progress, hideCart } = useUserProgress();
 
   const cartTotal = cartInfo.items.reduce(
@@ -29,8 +29,8 @@ const Cart = () => {
             name={item.name}
             quantity={item.quantity}
             price={item.price}
-            onIncrease={() => cartCtx.addItem(item)}
-            onDecrease={() => cartCtx.removeItem(item.id)}
+            onIncrease={() => handlerAddingMeal(item)}
+            onDecrease={() => handlerDeletingMeal(item.id)}
           />
         ))}
       </ul>
