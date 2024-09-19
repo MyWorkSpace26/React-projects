@@ -6,6 +6,7 @@ export const useCart = () => useContext(CartContext);
 
 const addCart = "ADD_ITEM";
 const deleteCart = "REMOVE_ITEM";
+const clearCartData = "CLEAR_CART";
 
 const reducer = (state, action) => {
   const updatedItems = [...state.items];
@@ -45,6 +46,8 @@ const reducer = (state, action) => {
       }
 
       return { ...state, items: updatedItems };
+    case clearCartData:
+      return { ...state, items: [] };
     default:
       return state;
   }
@@ -68,10 +71,18 @@ export const CartProvider = ({ children }) => {
       id,
     });
   };
+  const clearCartInfo = () => {
+    dispatch({ type: clearCartData });
+  };
 
   return (
     <CartContext.Provider
-      value={{ cartInfo, handlerAddingMeal, handlerDeletingMeal }}
+      value={{
+        cartInfo,
+        handlerAddingMeal,
+        handlerDeletingMeal,
+        clearCartInfo,
+      }}
     >
       {children}
     </CartContext.Provider>
