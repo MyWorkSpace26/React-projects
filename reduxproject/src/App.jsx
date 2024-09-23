@@ -1,11 +1,7 @@
-import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
-  return (
-    <>
-      <p>Click on the Vite and React logos to learn more</p>
-    </>
-  );
+  return <Counter />;
 }
 
 export default App;
