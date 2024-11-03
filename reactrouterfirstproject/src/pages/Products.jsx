@@ -1,20 +1,26 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProductsPage = () => {
-  const navigate = useNavigate();
+  const PRODUCTS = [
+    { id: "p1", title: "Product 1" },
+    { id: "p2", title: "Product 2" },
+    { id: "p3", title: "Product 3" },
+  ];
 
-  const navigateHandler = () => {
-    navigate("/");
-  };
   return (
     <>
       <div>
         <h1>This is a Products Page</h1>
       </div>
-      <p>
-        <button onClick={navigateHandler}>Navigate</button>
-      </p>
+
+      <ul>
+        {PRODUCTS.map((product) => (
+          <li key={product.id}>
+            <Link to={`/products/${product.id}`}>{product.title}</Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 };
