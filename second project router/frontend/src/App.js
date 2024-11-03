@@ -4,13 +4,18 @@ import EditEventPage from "./pages/EditEventPage";
 import EventDetailPage from "./pages/EventDetailPage";
 import EventsPage from "./pages/EventsPage";
 import NewEventPage from "./pages/NewEventPage";
+import RootLayout from "./pages/Root";
 
 function App() {
   const router = createBrowserRouter([
     {
-      index: true,
-      element: <HomePage />,
+      path: "/",
+      element: <RootLayout />,
       children: [
+        {
+          index: true,
+          element: <HomePage />,
+        },
         {
           path: "/events",
           element: <EventsPage />,
