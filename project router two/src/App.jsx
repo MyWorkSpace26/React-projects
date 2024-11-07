@@ -23,6 +23,7 @@ function App() {
         },
         {
           path: "events",
+
           element: <EventsRootLayout />,
           children: [
             {
@@ -32,16 +33,22 @@ function App() {
             },
             {
               path: ":eventId",
-              element: <EventDetailPage />,
               loader: eventDetailLoader,
+              id: "event-detail", // هاد خاص لحتى اقدر جيب البيانات من مستوى اعلى التسمية غير هامة
+              children: [
+                {
+                  index: true,
+                  element: <EventDetailPage />,
+                },
+                {
+                  path: "edit",
+                  element: <EditEventPage />,
+                },
+              ],
             },
             {
               path: "new",
               element: <NewEventPage />,
-            },
-            {
-              path: ":eventid/edit",
-              element: <EditEventPage />,
             },
           ],
         },
