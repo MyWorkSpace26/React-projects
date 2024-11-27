@@ -8,7 +8,6 @@ const initialState = {
     password: "",
     confirmPassword: "",
     phone: "",
-    city: "1",
   },
   didEdit: {
     firstName: false,
@@ -17,7 +16,14 @@ const initialState = {
     password: false,
     confirmPassword: false,
     phone: false,
-    city: false,
+  },
+  errors: {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    phone: "",
   },
 };
 
@@ -29,17 +35,19 @@ const infoRegistrationSlice = createSlice({
       const { field, value } = action.payload;
       state.infoperson[field] = value;
     },
-    setIsEdit(state, action) {
+    setDidEdit(state, action) {
       const { field, value } = action.payload;
       state.didEdit[field] = value;
+    },
+    setError(state, action) {
+      const { field, error } = action.payload;
+      state.errors[field] = error;
     },
   },
 });
 
-const store = configureStore({
-  reducer: infoRegistrationSlice.reducer,
-});
-
 export const RegistrationActions = infoRegistrationSlice.actions;
 
-export default store;
+export default configureStore({
+  reducer: infoRegistrationSlice.reducer,
+});
