@@ -68,7 +68,8 @@ h2 {
 }
 
 .input-field input:focus ~ label,
-.input-field input:valid ~ label {
+.input-field input:valid ~ label,
+.input-field.error label {
   font-size: 0.8rem;
   top: 10px;
   transform: translateY(-120%);

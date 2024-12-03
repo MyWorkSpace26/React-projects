@@ -23,6 +23,7 @@ const InputForm = () => {
   const info = useSelector((state) => state.infoperson);
   const blur = useSelector((state) => state.didEdit);
   const errors = useSelector((state) => state.errors);
+  const users = useSelector((state) => state.users);
 
   const handleInputChange = (field, value) => {
     dispatch(RegistrationActions.updateField({ field, value }));
@@ -40,16 +41,30 @@ const InputForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
     let isValid = true;
+
+    // Проверка всех полей на ошибки
     Object.keys(info).forEach((field) => {
       const error = validateField(field, info[field], info);
       if (error) isValid = false;
       dispatch(RegistrationActions.setError({ field, error }));
     });
 
+    // Проверка на уникальность email
+    if (users.some((user) => user.email === info.email)) {
+      dispatch(
+        RegistrationActions.setError({
+          field: "email",
+          error: "Пользователь с таким email уже зарегистрирован.",
+        })
+      );
+      isValid = false;
+    }
+
     if (isValid) {
-      alert("Данные отправлены:", info);
+      dispatch(RegistrationActions.registerUser());
+      alert("Регистрация успешна!");
     } else {
-      alert("Ошибки в форме:", errors);
+      alert("Исправьте ошибки в форме.");
     }
   };
 
@@ -58,7 +73,10 @@ const InputForm = () => {
       <form onSubmit={submitHandler}>
         <h2>Регистрация</h2>
         {Object.keys(info).map((field) => (
-          <div className="input-field" key={field}>
+          <div
+            className={`input-field ${errors[field] ? "error" : ""}`}
+            key={field}
+          >
             <input
               type={
                 field === "email"

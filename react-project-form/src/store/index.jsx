@@ -1,6 +1,7 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
+  users: [], // Массив зарегистрированных пользователей
   infoperson: {
     firstName: "",
     lastName: "",
@@ -42,6 +43,26 @@ const infoRegistrationSlice = createSlice({
     setError(state, action) {
       const { field, error } = action.payload;
       state.errors[field] = error;
+    },
+    registerUser(state) {
+      state.users.push({ ...state.infoperson }); // Добавляем нового пользователя
+      state.infoperson = {
+        // Очищаем форму после успешной регистрации
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        phone: "",
+      };
+      state.didEdit = {
+        firstName: false,
+        lastName: false,
+        email: false,
+        password: false,
+        confirmPassword: false,
+        phone: false,
+      };
     },
   },
 });
