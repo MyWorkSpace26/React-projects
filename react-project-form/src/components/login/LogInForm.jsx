@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RegistrationActions } from "./store";
+import { RegistrationActions } from "../../store";
 
 const validateField = (field, value, state) => {
   let error = "";
@@ -12,7 +12,7 @@ const validateField = (field, value, state) => {
   return error;
 };
 
-const SinginForm = () => {
+const LogInForm = () => {
   const dispatch = useDispatch();
   const info = useSelector((state) => state.infoperson);
   const blur = useSelector((state) => state.didEdit);
@@ -127,4 +127,4 @@ const SinginForm = () => {
   );
 };
 
-export default SinginForm;
+export default LogInForm;

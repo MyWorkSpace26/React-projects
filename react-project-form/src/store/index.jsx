@@ -1,7 +1,15 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
-  users: [], // Массив зарегистрированных пользователей
+  users: [
+    { id: 1, email: "test@example.com", password: "123456", name: "Иван" },
+    {
+      id: 2,
+      email: "user@example.com",
+      password: "password123",
+      name: "Мария",
+    },
+  ], // Массив зарегистрированных пользователей
   infoperson: {
     firstName: "",
     lastName: "",

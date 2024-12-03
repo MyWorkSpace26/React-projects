@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { RegistrationActions } from "./store";
+import { RegistrationActions } from "../../store/index";
 
 const validateField = (field, value, state) => {
   let error = "";
@@ -113,8 +113,13 @@ const InputForm = () => {
             )}
           </div>
         ))}
-        <button type="submit" disabled={!!errors[field]}>
-          {errors[field] ? "Неактивная кнопка" : "Зарегистрироваться"}
+        <button
+          type="submit"
+          disabled={Object.values(errors).some((error) => error)}
+        >
+          {Object.values(errors).some((error) => error)
+            ? "Неактивная кнопка"
+            : "Зарегистрироваться"}
         </button>
       </form>
     </div>

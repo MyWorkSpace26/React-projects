@@ -1,0 +1,48 @@
+/* Главный заголовок (шапка) */
+.header {
+  background: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Легкая линия */
+  backdrop-filter: blur(8px); /* Эффект размытия */
+  -webkit-backdrop-filter: blur(8px);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10; /* Поверх всего контента */
+}
+
+/* Навигация */
+.nav {
+  display: flex;
+  justify-content: center; /* Центрирование элементов */
+  align-items: center;
+}
+
+/* Список */
+.list {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Расстояние между элементами */
+}
+
+/* Ссылки */
+.link {
+  text-decoration: none;
+  color: #fff; /* Белый текст */
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 15px;
+  transition: all 0.3s ease; /* Анимация при наведении */
+  border-radius: 5px;
+}
+
+/* Эффект при наведении */
+.link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #9e9292;
+  text-decoration: underline;
+}
+
+.active {
+  background-color: #fd5555;
+  color: white;
+}
