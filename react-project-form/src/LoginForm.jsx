@@ -54,7 +54,7 @@ const InputForm = () => {
       dispatch(
         RegistrationActions.setError({
           field: "email",
-          error: "Пользователь с таким email уже зарегистрирован.",
+          error: "Пользователь с такой почтой уже зарегистрирован.",
         })
       );
       isValid = false;
@@ -113,7 +113,9 @@ const InputForm = () => {
             )}
           </div>
         ))}
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit" disabled={!!errors[field]}>
+          {errors[field] ? "Неактивная кнопка" : "Зарегистрироваться"}
+        </button>
       </form>
     </div>
   );
