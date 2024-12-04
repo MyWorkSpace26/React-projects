@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RegistrationActions } from "../../store";
+import { Link, NavLink } from "react-router-dom";
 
 const validateField = (field, value, state) => {
   let error = "";
@@ -122,6 +123,14 @@ const LogInForm = () => {
             ? "Неактивная кнопка"
             : "Войти в систему"}
         </button>
+        <div class="register">
+          <p>
+            У вас нет аккаунта ?{" "}
+            <NavLink to="/signup" className="register-link">
+              Зарегистрируйтесь
+            </NavLink>
+          </p>
+        </div>
       </form>
     </div>
   );

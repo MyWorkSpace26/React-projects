@@ -118,3 +118,24 @@ button:hover {
   color: #ff0000; /* Цвет символа */
   font-size: 1rem; /* Размер символа */
 }
+
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
+}
+
+.register-link {
+  text-decoration: none; /* Remove underline */
+  color: red; /* Set text color */
+  padding: 5px; /* Add some padding */
+  border: 1px solid transparent; /* Initial border */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.register-link:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+  color: darkred; /* Change text color on hover */
+  border: 1px solid red; /* Add border on hover */
+}

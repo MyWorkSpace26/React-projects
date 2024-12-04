@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RegistrationActions } from "../../store/index";
+import { useNavigate } from "react-router-dom";
 
 const validateField = (field, value, state) => {
   let error = "";
@@ -19,6 +20,7 @@ const validateField = (field, value, state) => {
 };
 
 const InputForm = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const info = useSelector((state) => state.infoperson);
   const blur = useSelector((state) => state.didEdit);
@@ -63,6 +65,7 @@ const InputForm = () => {
     if (isValid) {
       dispatch(RegistrationActions.registerUser());
       alert("Регистрация успешна!");
+      navigate("/");
     } else {
       alert("Исправьте ошибки в форме.");
     }
