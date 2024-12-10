@@ -29,18 +29,28 @@ const ProductDetailPage = () => {
       <div className={styles.productImage}>
         <img src={product.image} alt={product.title} />
       </div>
+
       <div className={styles.productInfo}>
         <h1 className={styles.title}>{product.title}</h1>
         <p className={styles.price}>${product.price.toFixed(2)}</p>
         <div className={styles.description}>
           <h3>Description</h3>
           <p>{product.description}</p>
+          <ul style={{ listStyleType: "none", padding: "0" }}>
+            <li style={{ marginBottom: "8px" }}>
+              <strong>Category:</strong> {product.category}
+            </li>
+            <li>
+              <strong>Rating:</strong> {product.rating.rate} (based on{" "}
+              {product.rating.count} reviews)
+            </li>
+          </ul>
         </div>
         <button
           className={styles.handleCardClickButton}
           onClick={handleCardClick}
         >
-          Вернуться на страницу товара
+          Вернуться к списку товаров
         </button>
       </div>
     </div>
