@@ -52,6 +52,13 @@ const ProductDetailPage = () => {
         >
           Вернуться к списку товаров
         </button>
+        <button
+          className={styles.handleCardClickButton}
+          onClick={() => navigate(`/products/${product.id}/edit`)}
+          style={{ marginLeft: "10px" }}
+        >
+          Редактировать продукт
+        </button>
       </div>
     </div>
   );

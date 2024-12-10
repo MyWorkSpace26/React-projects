@@ -63,7 +63,7 @@ function MainNavigation() {
               isActive ? classes["active-link"] : "inactive-link"
             }
           >
-            <i class="fa-solid fa-plus"></i> New Product
+            <i className="fa-solid fa-plus"></i> New Product
           </NavLink>
         </label>
       </nav>

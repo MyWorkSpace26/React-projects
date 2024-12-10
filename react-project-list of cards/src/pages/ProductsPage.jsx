@@ -6,15 +6,15 @@ import {
   deleteProduct,
 } from "../store/productSlice";
 import ProductCard from "../components/ProductCard";
-import styles from "../styles/ProductsPage.module.css"; // Подключение CSS
+import styles from "../styles/ProductsPage.module.css";
 
 const ProductsPage = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.list);
+  const [searchQuery, setSearchQuery] = useState(""); // Поиск по названию
+  const [filter, setFilter] = useState("all"); // Фильтр: все или избранное
   const status = useSelector((state) => state.products.status);
   const error = useSelector((state) => state.products.error);
-
-  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     if (status === "idle") dispatch(fetchProducts());
@@ -23,19 +23,36 @@ const ProductsPage = () => {
   if (status === "loading") return <p>Loading...</p>;
   if (status === "failed") return <p>Error: {error}</p>;
 
-  const filteredProducts =
-    filter === "favorites"
-      ? products.filter((product) => product.liked)
-      : products;
+  // Комбинированная фильтрация
+  const filteredProducts = products.filter((product) => {
+    // Фильтр избранного
+    if (filter === "favorites" && !product.liked) return false;
+
+    // Фильтр по названию
+    if (!product.title.toLowerCase().includes(searchQuery.toLowerCase()))
+      return false;
+
+    return true; // Продукт соответствует всем условиям
+  });
 
   return (
     <div>
+      {/* Поисковая строка и кнопки фильтров */}
       <div style={{ marginBottom: "1rem", textAlign: "center" }}>
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{ marginRight: "10px", padding: "5px", width: "200px" }}
+        />
         <button onClick={() => setFilter("all")}>Показать все</button>
         <button onClick={() => setFilter("favorites")}>
           Показать избранное
         </button>
       </div>
+
+      {/* Отображение списка продуктов */}
       <div className={styles.gridContainer}>
         {filteredProducts.length > 0 ? (
           filteredProducts.map((product) => (
@@ -47,9 +64,7 @@ const ProductsPage = () => {
             />
           ))
         ) : (
-          <p className={styles.noProductsMessage}>
-            В избранном пока ничего нет.
-          </p>
+          <p className={styles.noProductsMessage}>Ничего не найдено.</p>
         )}
       </div>
     </div>

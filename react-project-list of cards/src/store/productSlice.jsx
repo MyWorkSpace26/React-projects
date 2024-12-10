@@ -29,6 +29,12 @@ const productSlice = createSlice({
       const index = state.list.findIndex((p) => p.id === action.payload.id);
       if (index !== -1) state.list[index] = action.payload;
     },
+    updateProduct: (state, action) => {
+      const index = state.list.findIndex((p) => p.id === action.payload.id);
+      if (index !== -1) {
+        state.list[index] = action.payload; // Заменяем существующий продукт на обновленный
+      }
+    },
   },
   extraReducers: (builder) => {
     //builder - объект (Redux Toolkit), который помогает описывать логику для разных состояний асинхронного действия
@@ -51,6 +57,11 @@ const productSlice = createSlice({
   },
 });
 
-export const { toggleLike, deleteProduct, addProduct, editProduct } =
-  productSlice.actions;
+export const {
+  toggleLike,
+  deleteProduct,
+  addProduct,
+  editProduct,
+  updateProduct,
+} = productSlice.actions;
 export default productSlice.reducer;

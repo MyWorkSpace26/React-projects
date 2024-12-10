@@ -11,6 +11,8 @@ h1 {
 .form {
   display: flex;
   flex-direction: column;
+  padding-left: 20ch;
+  padding-right: 20ch;
 }
 
 .formGroup {
