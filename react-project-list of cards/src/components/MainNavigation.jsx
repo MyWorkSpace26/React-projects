@@ -5,7 +5,11 @@ function MainNavigation() {
   const navigate = useNavigate();
 
   const handleLabelClick = (rout) => {
-    rout === "home" ? navigate("/") : navigate("/products");
+    rout === "home"
+      ? navigate("/")
+      : rout === "blog"
+      ? navigate("/products")
+      : navigate("/create-product");
   };
   return (
     <>
@@ -43,6 +47,23 @@ function MainNavigation() {
             }
           >
             <i className="fa-solid fa-image"></i> Products
+          </NavLink>
+        </label>
+
+        <label
+          className="Add"
+          htmlFor="Add"
+          onClick={(rout) => {
+            handleLabelClick((rout = "Add"));
+          }}
+        >
+          <NavLink
+            to="/create-product"
+            className={({ isActive }) =>
+              isActive ? classes["active-link"] : "inactive-link"
+            }
+          >
+            <i class="fa-solid fa-plus"></i> New Product
           </NavLink>
         </label>
       </nav>

@@ -50,7 +50,8 @@ nav .slider {
   text-decoration: none;
 }
 #home:checked ~ nav label.home,
-#blog:checked ~ nav label.blog {
+#blog:checked ~ nav label.blog,
+#blog:checked ~ nav label.Add {
   color: #fff;
 }
 #blog:checked ~ nav .slider {

@@ -32,7 +32,7 @@ const ProductDetailPage = () => {
 
       <div className={styles.productInfo}>
         <h1 className={styles.title}>{product.title}</h1>
-        <p className={styles.price}>${product.price.toFixed(2)}</p>
+        <p className={styles.price}>${product.price}</p>
         <div className={styles.description}>
           <h3>Description</h3>
           <p>{product.description}</p>
