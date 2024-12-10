@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProducts, toggleLike } from "../store/productSlice";
+import ProductList from "../components/ProductList";
 
 const ProductsPage = () => {
-  return <h1>ProductsPage</h1>;
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.products.list);
+  const status = useSelector((state) => state.products.status);
+  const error = useSelector((state) => state.products.error);
+
+  useEffect(() => {
+    if (status === "idle") dispatch(fetchProducts());
+  }, [status, dispatch]);
+
+  if (status === "loading") return <p>Loading...</p>;
+  if (status === "failed") return <p>Error: {error}</p>;
+
+  return (
+    <div>
+      <ProductList
+        products={products}
+        onLike={(id) => dispatch(toggleLike(id))}
+      />
+    </div>
+  );
 };
 
 export default ProductsPage;
