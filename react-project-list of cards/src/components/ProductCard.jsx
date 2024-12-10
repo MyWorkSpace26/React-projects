@@ -23,7 +23,7 @@ const ProductCard = ({ product, onLike, onDelete }) => {
             onClick={onDelete}
             aria-label="Delete"
           >
-            ❌
+            🗑️
           </button>
         </div>
       </div>
