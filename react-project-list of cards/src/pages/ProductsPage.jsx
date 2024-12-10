@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchProducts, toggleLike } from "../store/productSlice";
+import {
+  fetchProducts,
+  toggleLike,
+  deleteProduct,
+} from "../store/productSlice";
 import ProductList from "../components/ProductList";
 
 const ProductsPage = () => {
@@ -21,6 +25,7 @@ const ProductsPage = () => {
       <ProductList
         products={products}
         onLike={(id) => dispatch(toggleLike(id))}
+        onDelete={(id) => dispatch(deleteProduct(id))}
       />
     </div>
   );

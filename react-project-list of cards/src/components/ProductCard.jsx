@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/ProductCard.module.css";
 
-const ProductCard = ({ product, onLike }) => {
+const ProductCard = ({ product, onLike, onDelete }) => {
   return (
     <div className={`${styles.card} ${product.liked ? styles.likedCard : ""}`}>
       <img src={product.image} alt={product.title} className={styles.image} />
@@ -17,6 +17,13 @@ const ProductCard = ({ product, onLike }) => {
             onClick={onLike}
           >
             ❤
+          </button>
+          <button
+            className={styles.deleteButton}
+            onClick={onDelete}
+            aria-label="Delete"
+          >
+            ❌
           </button>
         </div>
       </div>
