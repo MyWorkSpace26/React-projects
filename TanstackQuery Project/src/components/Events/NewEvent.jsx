@@ -6,12 +6,22 @@ import EventForm from "./EventForm.jsx";
 import { useMutation } from "@tanstack/react-query";
 import ErrorBlock from "../UI/ErrorBlock.jsx";
 import { createNewEvent } from "../../util/http.jsx";
+import { queryClient } from "../../util/http.jsx";
 
 export default function NewEvent() {
   const navigate = useNavigate();
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: createNewEvent,
+    //رح يتم تنفيذها حصرا بس  تنجح mutationFn
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        //رح يتم تحديث البيانات المرتبطة
+        //سيؤدي هذا إلى إبطال جميع الاستعلامات التي تحتوي على هذا المفتاح
+        queryKey: ["events"],
+      });
+      navigate("/events");
+    },
   });
 
   function handleSubmit(formData) {
