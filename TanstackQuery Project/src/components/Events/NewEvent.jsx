@@ -15,11 +15,9 @@ export default function NewEvent() {
     mutationFn: createNewEvent,
     //رح يتم تنفيذها حصرا بس  تنجح mutationFn
     onSuccess: () => {
-      queryClient.invalidateQueries({
-        //رح يتم تحديث البيانات المرتبطة
-        //سيؤدي هذا إلى إبطال جميع الاستعلامات التي تحتوي على هذا المفتاح
-        queryKey: ["events"],
-      });
+      queryClient.invalidateQueries({ queryKey: ["events"] });
+      //رح يتم تحديث البيانات المرتبطة
+      //سيؤدي هذا إلى إبطال جميع الاستعلامات التي تحتوي على هذا المفتاح
       navigate("/events");
     },
   });
@@ -31,7 +29,7 @@ export default function NewEvent() {
   return (
     <Modal onClose={() => navigate("../")}>
       <EventForm onSubmit={handleSubmit}>
-        {isPending && "Submitting....."}
+        {isPending && "Submitting..."}
         {!isPending && (
           <>
             <Link to="../" className="button-text">
