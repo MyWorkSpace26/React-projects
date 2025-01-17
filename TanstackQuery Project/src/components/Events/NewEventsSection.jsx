@@ -6,8 +6,8 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchEvents } from "../../util/http.jsx";
 
 export default function NewEventsSection() {
-  const { isPending, error, data } = useQuery({
-    queryKey: "events",
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["events"],
     queryFn: fetchEvents,
     staleTime: 5000,
   });
@@ -18,9 +18,12 @@ export default function NewEventsSection() {
     content = <LoadingIndicator />;
   }
 
-  if (error) {
+  if (isError) {
     content = (
-      <ErrorBlock title="An error occurred" message="Failed to fetch events" />
+      <ErrorBlock
+        title="An error occurred"
+        message={error.info?.message || "Failed to fetch events."}
+      />
     );
   }
 
