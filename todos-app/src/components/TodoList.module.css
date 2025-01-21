@@ -1,0 +1,45 @@
+/* Пагинация */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.pageButton {
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #555555;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pageButton:hover {
+  background-color: #007bff;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.pageButton.active {
+  background-color: #007bff;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.pageButton.disabled {
+  background-color: #e0e0e0;
+  color: #aaaaaa;
+  cursor: not-allowed;
+  box-shadow: none;
+}

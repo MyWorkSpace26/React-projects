@@ -1,20 +1,19 @@
 import React from "react";
+import { Box, Typography } from "@mui/material";
 import TodoInput from "./components/TodoInput.tsx";
 import TodoList from "./components/TodoList.tsx";
 import Filters from "./components/Filters.tsx";
-import { useSelector } from "react-redux";
-import { RootState } from "../store/store.ts";
 
 function App() {
-  const { tasks } = useSelector((state: RootState) => state.todos);
-  console.log(tasks);
   return (
-    <div className="App">
-      <h1>todos</h1>
+    <Box style={{ padding: "20px", maxWidth: "500px", margin: "auto" }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Todos
+      </Typography>
       <TodoInput />
-      <TodoList />
       <Filters />
-    </div>
+      <TodoList />
+    </Box>
   );
 }
 

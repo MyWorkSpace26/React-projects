@@ -1,28 +1,35 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTask } from "../store/todoSlice.ts";
+import { TextField, IconButton, Box } from "@mui/material";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const TodoInput: React.FC = () => {
-  const [text, setText] = useState("");
+  const [taskText, setTaskText] = useState("");
   const dispatch = useDispatch();
 
-  const handleAddTodo = () => {
-    if (text.trim()) {
-      dispatch(addTask(text));
-      setText("");
+  const handleAddTask = () => {
+    if (taskText.trim()) {
+      dispatch(addTask(taskText));
+      setTaskText("");
     }
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="What needs to be done?"
+    <Box
+      style={{ display: "flex", alignItems: "center", marginBottom: "20px" }}
+    >
+      <TextField
+        variant="outlined"
+        placeholder="Add a new task"
+        fullWidth
+        value={taskText}
+        onChange={(e) => setTaskText(e.target.value)}
       />
-      <button onClick={handleAddTodo}>Add</button>
-    </div>
+      <IconButton color="primary" onClick={handleAddTask}>
+        <AddCircleIcon style={{ fontSize: "40px" }} />
+      </IconButton>
+    </Box>
   );
 };
 

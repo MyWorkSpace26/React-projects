@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Todo } from "../types/Todo.ts";
-//Библиотека для генерации уникальных идентификаторов
 import { v4 as uuidv4 } from "uuid";
+import { Todo } from "../types/Todo";
 
 const initialState = {
   tasks: [] as Todo[],

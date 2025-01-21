@@ -1,29 +1,40 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { toggleTask, removeTask } from "../store/todoSlice.ts";
-import { Todo } from "../types/Todo";
+import { IconButton, Box, Typography, Paper } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-interface TodoItemProps {
-  todo: Todo;
-}
-
-const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
-  const dispatch = useDispatch();
-
+const TodoItem = ({ id, text, completed, onToggle, onDelete }: any) => {
   return (
-    <div>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => dispatch(toggleTask(todo.id))}
-      />
-      <span
-        style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-      >
-        {todo.text}
-      </span>
-      <button onClick={() => dispatch(removeTask(todo.id))}>Delete</button>
-    </div>
+    <Paper
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "10px",
+        margin: "10px 0",
+        backgroundColor: completed ? "#d4f8d4" : "#fff",
+      }}
+    >
+      <Box>
+        <Typography
+          variant="body1"
+          style={{
+            textDecoration: completed ? "line-through" : "none",
+            fontStyle: "italic",
+          }}
+        >
+          {text}
+        </Typography>
+      </Box>
+      <Box>
+        <IconButton color="primary" onClick={() => onToggle(id)}>
+          <CheckCircleIcon />
+        </IconButton>
+        <IconButton color="error" onClick={() => onDelete(id)}>
+          <DeleteIcon />
+        </IconButton>
+      </Box>
+    </Paper>
   );
 };
 
