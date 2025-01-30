@@ -16,6 +16,18 @@ export default function Home() {
           Show All Meals
         </Link>
       </p>
+
+      <p style={{ textAlign: "center" }}>
+        <Link
+          href="/community"
+          style={{
+            color: "white",
+            textDecoration: "none",
+          }}
+        >
+          Communtiy
+        </Link>
+      </p>
     </main>
   );
 }
