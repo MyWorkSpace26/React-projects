@@ -8,6 +8,7 @@ export default function MealDetailsPage({ params }) {
   const meal = getMeal(params.mealSlug);
 
   if (!meal) {
+    //اظهار أقرب صفحة لم يتم العثور عليها أو صفحة خطأ
     notFound();
   }
 
