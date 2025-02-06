@@ -1,7 +1,7 @@
 import Modal from "../UI/Modal";
 import { useCart } from "../../context/CartContext";
 import React from "react";
-import { currFormatting } from "../../util/Formatting";
+import { currFormatting } from "../../util/formatting";
 import { Button } from "../UI/Button";
 import { useUserProgress } from "../../context/UserProgressContext";
 import CartItem from "./CartItem";
