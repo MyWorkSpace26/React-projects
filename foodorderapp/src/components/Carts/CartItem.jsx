@@ -1,4 +1,4 @@
-import { currFormatting } from "../../util/Formatting";
+import { currFormatting } from "../../util/formatting";
 
 export default function CartItem({
   name,

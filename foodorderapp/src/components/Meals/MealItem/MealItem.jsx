@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useCart } from "../../../context/CartContext";
-import { currFormatting } from "../../../util/Formatting";
+import { currFormatting } from "../../../util/formatting";
 import { Button } from "../../UI/Button";
 const MealItem = ({ meal }) => {
   const { handlerAddingMeal } = useCart();
