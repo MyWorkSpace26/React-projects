@@ -1,6 +1,6 @@
 import Modal from "./UI/Modal.jsx";
 import { useCart } from "../context/CartContext.jsx";
-import { currFormatting } from "../util/Formatting.js";
+import { currFormatting } from "../util/formatting.js";
 import Input from "./UI/Input.jsx";
 import { Button } from "./UI/Button.jsx";
 import { useUserProgress } from "../context/UserProgressContext.jsx";
