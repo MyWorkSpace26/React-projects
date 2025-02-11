@@ -6,14 +6,16 @@ export default function Modal({ title, children, onClose }) {
     <>
       <div className="backdrop" onClick={onClose} />
       <motion.dialog
-        //هذه الخاصية الأولية بتحديد الحالة الأولية للرسوم المتحركة التي سيتم تنفيذها
-        // والتي سيتم افتراضها مباشرة بعد إضافة هذا العنصر إلى DOM.
-        initial={{
-          opacity: 0,
-          y: +30,
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: { opacity: 1, y: 0 },
+          /* FIX FOR NEWER FRAMER-MOTION */
+          exit: { opacity: 0, y: 30 },
         }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 30 }}
+        initial="hidden"
+        animate="visible"
+        /* FIX FOR NEWER FRAMER-MOTION */
+        exit="exit"
         open
         className="modal"
       >
