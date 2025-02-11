@@ -50,6 +50,7 @@ export default function NewChallenge({ onDone }) {
 
   return (
     <Modal title="New Challenge" onClose={onDone}>
+      {/*  ref={scope} ربطتها  */}
       <form id="new-challenge" onSubmit={handleSubmit} ref={scope}>
         <p>
           <label htmlFor="title">Title</label>
