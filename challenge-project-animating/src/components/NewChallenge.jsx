@@ -1,5 +1,5 @@
 import { useContext, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimate, stagger } from "framer-motion";
 
 import { ChallengesContext } from "../store/challenges-context.jsx";
 import Modal from "./Modal.jsx";
@@ -9,6 +9,10 @@ export default function NewChallenge({ onDone }) {
   const title = useRef();
   const description = useRef();
   const deadline = useRef();
+
+  //scope -  لتحدد اي عنصر من الصفحة لازم يستهدف متل اليوس ريف
+  //animate - هي عمليا الشي يلي لازم يتنفذ
+  const [scope, animate] = useAnimate();
 
   const [selectedImage, setSelectedImage] = useState(null);
   const { addChallenge } = useContext(ChallengesContext);
@@ -32,6 +36,11 @@ export default function NewChallenge({ onDone }) {
       !challenge.deadline.trim() ||
       !challenge.image
     ) {
+      animate(
+        "input, textarea", // منقلو شو هو العناصر يلي لازم يطبق عليهون
+        { x: [-10, 0, 10, 0] }, //التاثير
+        { type: "spring", duration: 0.2, delay: stagger(0.05) } //transition
+      );
       return;
     }
 
@@ -41,7 +50,7 @@ export default function NewChallenge({ onDone }) {
 
   return (
     <Modal title="New Challenge" onClose={onDone}>
-      <form id="new-challenge" onSubmit={handleSubmit}>
+      <form id="new-challenge" onSubmit={handleSubmit} ref={scope}>
         <p>
           <label htmlFor="title">Title</label>
           <input ref={title} type="text" name="title" id="title" />
@@ -67,7 +76,7 @@ export default function NewChallenge({ onDone }) {
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
-                visible: { opacity: 1, scale: [0.8, 1.2, 1] },
+                visible: { opacity: 1, scale: [0.8, 1.3, 1] },
               }}
               exit={{ opacity: 1, scale: 1 }}
               transition={{ type: "spring" }}
