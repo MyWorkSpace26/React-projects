@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "animatedCursorEnabled": true,
+  "fullScreenButtonEnabled": true,
+
+  "preloader": {
+    "enabled": true,
+    "title": "React <b>Portfolio</b>",
+    "subtitle": "by Amin Alkobaili"
+  },
+
+  "profile": {
+    "name": "Amin Alkobaili",
+    "logoUrl": "images/svg/logo.svg",
+
+    "profilePictureUrl": "images/pictures/avatar.jpg",
+
+    "locales": {
+      "en": {
+        "role": "React-Developer"
+      },
+      "ru": {
+        "role": "React-разработчик"
+      }
+    }
+  },
+
+  "status": {
+    "visible": true,
+    "available": true,
+
+    "locales": {
+      "en": { "message": "Available for freelancers!" },
+      "ru": { "message": "Доступно для фрилансеров!" }
+    }
+  },
+
+  "supportedThemes": [
+    {
+      "id": "dark",
+      "default": true,
+      "icon": "fa-solid fa-moon"
+    },
+
+    {
+      "id": "light",
+      "default": false,
+      "icon": "fa-solid fa-sun"
+    }
+  ],
+
+  "supportedLanguages": [
+    {
+      "name": "English",
+      "id": "en",
+      "flagUrl": "images/flags/en.png",
+      "default": true
+    },
+
+    {
+      "name": "Русский",
+      "id": "ru",
+      "flagUrl": "images/flags/ru.png"
+    }
+  ],
+
+  "emailjs": {
+    "publicKey": "tzObcsmOwHvPy6Rhp",
+    "serviceId": "service_4h8g7vb",
+    "templateId": "template_seyjkzn"
+  }
+}

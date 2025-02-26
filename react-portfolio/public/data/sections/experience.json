@@ -1,0 +1,52 @@
+{
+  "locales": {
+    "en": {
+      "title": "Experience",
+      "title_long_prefix": "Summary of my",
+      "title_long": "**Work** Experience"
+    },
+
+    "ru": {
+      "title": "Опыт работы",
+      "title_long_prefix": "Краткое изложение моего",
+      "title_long": "**опыта** работы"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "work",
+      "component": "ArticleTimeline",
+      "config": {},
+      "locales": {},
+
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-building",
+            "faColors": { "bg": "#EEE", "fill": "#111" }
+          },
+          "dates": {
+            "start": "02/01/2023",
+            "end": "03/01/2023"
+          },
+          "locales": {
+            "en": {
+              "title": "**Intern**-programmer",
+              "info": "limited liability company **NTR**",
+              "text": "Development of an interactive 3D model of a fire system as part of an industrial practice at NTR Company.I used React to implement the project for building the user interface and the Three.js library for working with 3D graphics. The model was uploaded in GLTF format, which made it possible to effectively manage its structure and textures. The company prohibits the publication of this project in accordance with the privacy policy.",
+              "tags": ["React", "React-Hooks", "Three.js"]
+            },
+            "ru": {
+              "title": "**Стажер**-программист",
+              "info": "ОБЩЕСТВО С ОГРАНИЧЕННОЙ ОТВЕТСТВЕННОСТЬЮ **НТР**",
+              "text": "Разработка интерактивной 3D модели пожарной системы в рамках производственной практики в компании ООО «НТР». Для реализации проекта я использовал React.js для построения пользовательского интерфейса и библиотеку Three.js для работы с 3D-графикой. Модель была загружена в формате GLTF, что позволило эффективно управлять её структурой и текстурами. Компания запрещает публиковать этот проект в соответствии с политикой конфиденциальности.",
+              "tags": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

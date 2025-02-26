@@ -1,0 +1,103 @@
+{
+  "locales": {
+    "en": {
+      "title": "Education",
+      "title_long_prefix": "This is my",
+      "title_long": "**Educational** Background"
+    },
+
+    "ru": {
+      "title": "Образование",
+      "title_long_prefix": "Это мое",
+      "title_long": "**образование**"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "academic",
+      "component": "ArticleTimeline",
+      "config": {},
+      "locales": {},
+
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-building-columns",
+
+            "faColors": { "bg": "#111", "fill": "#eee" }
+          },
+          "dates": {
+            "start": "09/01/2020",
+            "end": "08/01/2024"
+          },
+          "locales": {
+            "en": {
+              "title": "**Bachelor** in information technology and computing systems",
+              "info": "STANKIN",
+              "text": "Earned a Bachelor's degree in Computer Science, focusing on algorithms, data structures, software engineering, and web development. Gained hands-on experience through various programming projects.",
+              "tags": ["CSS", "Html", "javaScript"]
+            },
+            "ru": {
+              "title": "**Бакалавр** в области информационных технологий и вычислительных систем",
+              "info": "СТАНКИН",
+              "text": "Получил степень бакалавра в области компьютерных наук, специализируясь на алгоритмах, структурах данных, разработке программного обеспечения и веб-разработке. Приобрел практический опыт в различных проектах по программированию.",
+              "tags": null
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-building-columns",
+            "faColors": { "bg": "#EEE", "fill": "#111" }
+          },
+          "dates": {
+            "start": "09/01/2024",
+            "end": "08/01/2026"
+          },
+          "locales": {
+            "en": {
+              "title": "**Master's Degree** in information technology and computing systems",
+              "info": "STANKIN",
+              "text": "I continue to study and deepen my knowledge and skills in the field of information technology and computing systems."
+            },
+            "ru": {
+              "title": "**Магистр** в области информационных технологий и вычислительных систем",
+              "info": "СТАНКИН",
+              "text": "Продолжаю учиться и углублять знания и навыки в области информационных технологий и вычислительных систем.",
+              "tags": null
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-react",
+            "faColors": { "bg": "#61DAFB", "fill": "#111" }
+          },
+          "dates": {
+            "start": null,
+            "end": null
+          },
+          "locales": {
+            "en": {
+              "title": "Dive in and learn **React.js** from scratch!",
+              "info": "Platform Udemy",
+              "text": "I study React, Hooks,Redux, React Router, Next.js, Typescript."
+            },
+            "ru": {
+              "title": "Изучение **React.js** с нуля!",
+              "info": "Платформа Udemy",
+              "text": "Изучаю React, Hooks,Redux, React Router, Next.js, Typescript.",
+              "tags": null
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

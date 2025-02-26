@@ -1,0 +1,233 @@
+{
+  "locales": {
+    "en": {
+      "title": "Skills",
+      "title_long_prefix": "Explore",
+      "title_long": "My **Skill Set**"
+    },
+
+    "ru": {
+      "title": "Навыки",
+      "title_long_prefix": "познакомитесь",
+      "title_long": "с моим **набором навыков**"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "capabilities",
+      "component": "ArticleCards",
+      "config": {},
+      "locales": {},
+
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-table-columns",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": {
+              "title": "**Website** design",
+              "text": "I can bring your best ideas into life!"
+            },
+            "ru": {
+              "title": "**Вебсайт** дизайн",
+              "text": "Я могу воплотить в жизнь ваши лучшие идеи!"
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-database",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": {
+              "title": "**Database** management",
+              "text": "I can handle your data effectively!"
+            },
+            "ru": {
+              "title": "Управление **базой данных**",
+              "text": "Я могу эффективно обрабатывать ваши данные!"
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-lock",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": {
+              "title": "Information **Security**",
+              "text": "Security is my middle name!"
+            },
+            "ru": {
+              "title": "Информационная **Безопасность**",
+              "text": "Безопасность - это мое второе имя!"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "front_end_programming",
+      "component": "ArticleList",
+      "config": {},
+      "locales": {
+        "en": { "title": "Frontend" }
+      },
+
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-html5",
+            "faColors": { "bg": "#E34F26", "fill": "#EEE" }
+          },
+          "value": 80,
+
+          "locales": {
+            "en": {
+              "title": "HTML5",
+              "info": null
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-css3",
+            "faColors": { "bg": "#1572B6", "fill": "#EEE" }
+          },
+          "value": 65,
+          "locales": {
+            "en": {
+              "title": "CSS3",
+              "info": null
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-js",
+            "faColors": { "bg": "#F7DF1E", "fill": "#111" }
+          },
+          "value": 70,
+          "locales": {
+            "en": {
+              "title": "JavaScript ES6+",
+              "info": null
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-react",
+            "faColors": { "bg": "#61DAFB", "fill": "#111" }
+          },
+          "value": 75,
+          "locales": {
+            "en": {
+              "title": "React",
+              "info": null
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-n",
+            "faColors": { "bg": "black", "fill": "white" }
+          },
+          "value": 40,
+          "locales": {
+            "en": {
+              "title": "Next.js",
+              "info": null
+            }
+          }
+        },
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-bootstrap",
+            "faColors": { "bg": "#7952B3", "fill": "#EEE" }
+          },
+          "value": 55,
+          "locales": {
+            "en": {
+              "title": "Bootstrap",
+              "info": null
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "languages",
+      "component": "ArticleList",
+      "config": {},
+      "locales": {
+        "en": { "title": "Languages" },
+        "ru": { "title": "Языки" }
+      },
+
+      "items": [
+        {
+          "icon": {
+            "img": "images/flags/en.png",
+            "fa": null,
+            "faColors": { "bg": null, "fill": null }
+          },
+          "value": null,
+          "dates": { "start": null },
+          "locales": {
+            "en": {
+              "title": "English",
+              "info": "Intermediate proficiency in English language; can hold conversations and understand written text.",
+              "tags": ["Intermediate"]
+            },
+            "ru": {
+              "title": "Английский",
+              "info": "Средний уровень владения английским языком; могу вести беседу и понимать письменный текст.",
+              "tags": ["Средний "]
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": "images/flags/ru.png",
+            "fa": null,
+            "faColors": { "bg": null, "fill": null }
+          },
+          "value": null,
+          "dates": { "start": null },
+          "locales": {
+            "en": {
+              "title": "Russian",
+              "info": "Fluent in both spoken and written Russian; confident in professional communication.",
+              "tags": ["Fluent"]
+            },
+            "ru": {
+              "title": "Русский",
+              "info": "Свободно владею устным и письменным русским языком; уверен в профессиональном общении.",
+              "tags": ["Беглый"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

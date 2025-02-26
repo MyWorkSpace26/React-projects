@@ -1,0 +1,146 @@
+{
+  "locales": {
+    "en": {
+      "title": "Portfolio",
+      "title_long_prefix": "Take a look at",
+      "title_long": "My **Portfolio**"
+    },
+
+    "ru": {
+      "title": "Портфолио",
+      "title_long_prefix": "Взгляните на",
+      "title_long": "Мое **портфолио**"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "portfolio",
+      "component": "ArticlePortfolio",
+      "config": {},
+      "locales": {},
+
+      "categories": [
+        {
+          "id": "apps",
+          "locales": {
+            "en": { "singular": "App", "plural": "Apps" },
+            "ru": { "singular": "Приложение", "plural": "Приложения" }
+          }
+        },
+        {
+          "id": "websites",
+          "locales": {
+            "en": { "singular": "Website", "plural": "Web" },
+            "ru": { "singular": "Вебсайт", "plural": "Сеть" }
+          }
+        }
+      ],
+
+      "items": [
+        {
+          "categoryId": "websites",
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-cart-shopping",
+            "faColors": { "bg": "#111", "fill": "#EEE" }
+          },
+
+          "links": [
+            {
+              "faIcon": "fa-solid fa-link",
+              "href": "https://symphonious-pie-84ebcd.netlify.app/"
+            }
+          ],
+
+          "media": {
+            "youtubeVideo": "",
+            "screenshots": {
+              "aspectRatio": null,
+              "images": []
+            }
+          },
+
+          "locales": {
+            "en": {
+              "title": "List of products",
+              "text": "I developed a web application for managing a list of products, implemented key functions for interacting with products, filtering and editing data.",
+              "tags": ["React-Router", "axios", "RTK"]
+            },
+            "ru": {
+              "title": "список продуктов",
+              "text": "Разработал веб-приложение для управления списком продуктов, реализованы ключевые функции взаимодействия с товарами, фильтрации и редактирования данных.",
+              "tags": ["React-Router", "axios", "RTK"]
+            }
+          }
+        },
+
+        {
+          "categoryId": "websites",
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-list",
+            "faColors": { "bg": "blue", "fill": "#EEE" }
+          },
+
+          "links": [
+            {
+              "faIcon": "fa-solid fa-link",
+              "href": "https://timely-snickerdoodle-2efd68.netlify.app/"
+            }
+          ],
+
+          "locales": {
+            "en": {
+              "title": "To-do list",
+              "text": "In company «NTR» developed a web application that allows users to create, edit, delete, and mark completed tasks, providing a user-friendly interface and smooth interaction.",
+              "tags": ["React-Hooks", "Context API", "Styled Components"]
+            },
+            "ru": {
+              "title": "Список дел",
+              "text": "В компании ООО «НТР» разработал web-приложение, котроое позволяет пользователям создавать, редактировать, удалять и отмечать выполненные задачи, обеспечивая удобный интерфейс и плавное взаимодействие.",
+              "tags": ["React-Hooks", "Context API", "Styled Components"]
+            }
+          }
+        },
+
+        {
+          "categoryId": "websites",
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-diagram-project",
+            "faColors": { "bg": "green", "fill": "black" }
+          },
+
+          "links": [
+            {
+              "faIcon": "fa-solid fa-link",
+              "href": "https://fancy-sawine-889dd0.netlify.app/"
+            }
+          ],
+
+          "media": {
+            "youtubeVideo": null,
+            "screenshots": {
+              "aspectRatio": null,
+              "images": []
+            }
+          },
+
+          "locales": {
+            "en": {
+              "title": "Project management",
+              "text": "I have developed a list of projects with the ability to manage, add and delete tasks.",
+              "tags": ["Tailwind", "Context API"]
+            },
+            "ru": {
+              "title": "Управление проектом",
+              "text": "Разработал список проектов с возможностью управления, добавления и удаления задач.",
+              "tags": ["Tailwind", "Context API"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

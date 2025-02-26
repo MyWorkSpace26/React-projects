@@ -1,0 +1,172 @@
+{
+  "locales": {
+    "en": {
+      "title": "Welcome!",
+      "title_menu": "About me",
+      "title_long_prefix": "Hello...",
+      "title_long": "I'm **Amin Alkobaili!**"
+    },
+    "ru": {
+      "title": "Добро пожаловать!",
+      "title_menu": "Обо мне",
+      "title_long_prefix": "Здравствуйте...",
+      "title_long": "Меня зовут **Аль Кобаили Амин!**"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "contact_list",
+      "component": "ArticleGrid",
+      "config": {
+        "ignorePaddingTop": true,
+        "format": "inline"
+      },
+      "locales": {
+        "en": {},
+        "es": {},
+        "ru": {}
+      },
+
+      "items": [
+        {
+          "value": "Stankin",
+          "links": [{ "href": null }],
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-city",
+            "faColors": { "bg": null, "fill": null }
+          }
+        },
+        {
+          "value": "amin.alkobaili@gamil.com",
+          "links": [{ "href": "amin.alkobaili@gamil.com" }],
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-envelope",
+            "faColors": { "bg": null, "fill": null }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "short_description",
+      "component": "ArticleInfoBlock",
+      "config": {},
+      "locales": {
+        "en": { "title": "**A little bit** about me..." },
+
+        "ru": { "title": "**Немного** обо мне..." }
+      },
+
+      "items": [
+        {
+          "icon": {
+            "img": "images/svg/logo.svg",
+            "fa": null,
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": {
+              "text": "<p>I am a <b>1st year graduate student</b> at STANKIN Moscow State Technical University and a young specialist in Frontend development. </p><p>I strive to develop in creating modern web applications and deepen my knowledge in React.js, JavaScript, TypeScript, and other technologies.</p>"
+            },
+            "ru": {
+              "text": "<p>Я студент <b>1 курса магистратуры</b> МГТУ «СТАНКИН» и молодой специалист в области Frontend-разработки. </p><p>Стремлюсь развиваться в создании современных веб-приложений,углублять знания в React.js, JavaScript, TypeScript и других технологиях.</p>"
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "interests",
+      "component": "ArticleGrid",
+      "config": {
+        "format": "grid"
+      },
+      "locales": {
+        "en": { "title": "Personal **interests**" },
+        "ru": { "title": "Личные **интересы**" }
+      },
+
+      "items": [
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-paint-brush",
+            "faColors": null
+          },
+          "value": null,
+          "locales": {
+            "en": {
+              "title": "Illustration",
+              "info": "Exploring new styles."
+            },
+            "ru": {
+              "title": "Иллюстрация",
+              "info": "Изучение новых стилей."
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-chart-line",
+            "faColors": null
+          },
+          "value": null,
+          "locales": {
+            "en": {
+              "title": "Investing",
+              "info": "Learning the basics of stocks and personal finance."
+            },
+            "ru": {
+              "title": "Вкладывающий",
+              "info": "Изучаю основы торговли акциями и личных финансов."
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-pencil-alt",
+            "faColors": null
+          },
+          "value": null,
+          "locales": {
+            "en": {
+              "title": "UX design",
+              "info": "Studying user experience principles."
+            },
+            "ru": {
+              "title": "Дизайн UX",
+              "info": "Изучение принципов взаимодействия с пользователем."
+            }
+          }
+        },
+
+        {
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-camera-retro",
+            "faColors": null
+          },
+          "value": null,
+          "locales": {
+            "en": {
+              "title": "Photo editing",
+              "info": "Enhancing photos through creative editing techniques."
+            },
+            "ru": {
+              "title": "Редактирование фотографий",
+              "info": "Улучшение качества фотографий с помощью креативных методов редактирования."
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

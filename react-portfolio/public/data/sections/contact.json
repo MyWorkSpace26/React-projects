@@ -1,0 +1,81 @@
+{
+  "locales": {
+    "en": {
+      "title": "Contact",
+      "title_long_prefix": "Don't hesitate to",
+      "title_long": "**Contact** Me"
+    },
+
+    "ru": {
+      "title": "Контакт",
+      "title_long_prefix": "Не стесняйтесь",
+      "title_long": "**обращаться** ко мне"
+    }
+  },
+
+  "articles": [
+    {
+      "id": "contact_list",
+      "component": "ArticleGrid",
+      "config": {
+        "format": "grid"
+      },
+
+      "items": [
+        {
+          "value": "+7 (925) 267-97-89",
+          "links": [{ "href": "tel:+7 (925) 267-97-89" }],
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-phone",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": { "title": "Phone" },
+            "ru": { "title": "Телефон" }
+          }
+        },
+
+        {
+          "value": "amin.alkobaili@gmail.com",
+          "links": [{ "href": "amin.alkobaili@gmail.com" }],
+          "icon": {
+            "img": null,
+            "fa": "fa-solid fa-envelope",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": { "title": "Gmail" },
+            "ru": { "title": "Э-Почта" }
+          }
+        },
+
+        {
+          "value": "Amin ko",
+          "links": [{ "href": "https://facebook.com" }],
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-facebook",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": { "title": "Facebook" }
+          }
+        },
+
+        {
+          "value": "@warex26",
+          "links": [{ "href": "https://t.me/warex26" }],
+          "icon": {
+            "img": null,
+            "fa": "fa-brands fa-telegram",
+            "faColors": { "bg": null, "fill": null }
+          },
+          "locales": {
+            "en": { "title": "Telegram" }
+          }
+        }
+      ]
+    }
+  ]
+}
