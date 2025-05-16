@@ -1,7 +1,7 @@
 import PasswordInput from "../../../containers/ui/PasswordInput/index";
 import AuthLayout from "../../layout/index";
 import AuthFormButton from "../../AuthFormButton/index";
-import Input from "../../../containers/ui/Input";
+import Input from "../../Input";
 
 const LoginForm = (props) => {
   return (

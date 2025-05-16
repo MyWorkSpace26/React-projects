@@ -1,7 +1,7 @@
 import PasswordInput from "../../../containers/ui/PasswordInput/index";
 import AuthLayout from "../../layout";
 import AuthFormButton from "../../AuthFormButton/index";
-import Input from "../../../containers/ui/Input";
+import Input from "../../Input";
 
 const RegistrationForm = (props) => {
   return (
