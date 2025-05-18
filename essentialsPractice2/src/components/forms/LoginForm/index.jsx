@@ -1,4 +1,4 @@
-import PasswordInput from "../../../containers/ui/PasswordInput/index";
+import PasswordInput from "../../../containers/PasswordInput/index";
 import AuthLayout from "../../layout/index";
 import AuthFormButton from "../../AuthFormButton/index";
 import Input from "../../Input";
